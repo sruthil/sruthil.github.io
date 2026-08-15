@@ -48,17 +48,20 @@ body {
     display: flex;
     transform: translatex(0%);
     transition: .5s transform ease;
+    overflow-x: hidden;
 
-    &.active {
+    &.active > div{
         transform: translatex(-100%);
     }
 
-    &.active.start {
+    &.active.start > div{
         transform: translatex(-200%);
     }
 
     &>div {
         flex: 0 0 100%;
+        transform: translatex(0%);
+        transition: .5s transform ease;
     }
 }
 

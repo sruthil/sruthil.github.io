@@ -63,6 +63,9 @@ let totalballs = 0;
 
 document.getElementById("detailsForm").addEventListener("submit", (e)=>{
     e.preventDefault();
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+    }
     teamA = e.target.elements.teamA.value;
     teamB = e.target.elements.teamB.value;
     Overs = parseInt(e.target.elements.overs.value || "0", 10);
@@ -245,7 +248,7 @@ document.querySelectorAll(".bowlActionButton").forEach(e => {
                 console.log(1)
                 document.body.innerHTML = `<div class='success-popup'>
                 <h1>${(firstInnings == "A"? teamB : teamA)}</h1>
-                <h2>has won the match</h2>
+                <h2>has won the match 1</h2>
                 <button type='button' onclick='location.reload(true);'>Start New Match</button>
                 </div>`
                 // alert((firstInnings == "A"? teamB : teamA) + " Won the match");
@@ -258,27 +261,30 @@ let firstInningsRun = 0;
 
 function inningsOver(){
     setTimeout(() => {
-        if(firstInningsRun > 0){
+    if(firstInningsRun > 0){
         if(runCount > firstInningsRun){
             console.log(2)
-            document.body.innerHTML = "<div class='success-popup'"
+            // document.body.innerHTML = "<div class='success-popup'"
             // alert((firstInnings == "A"? teamB : teamA) + " Won the match")
             document.body.innerHTML = `<div class='success-popup'>
                 <h1>${(firstInnings == "A"? teamB : teamA)}</h1>
-                <h2>has won the match</h2>
+                <h2>has won the match 2</h2>
                 <button type='button' onclick='location.reload(true);'>Start New Match</button>
                 </div>`
         }
-        else{
-            console.log(3)
-            document.body.innerHTML = "<div class='success-popup'"
-            // alert((firstInnings == "B"? teamB : teamA) + " Won the match")
-            document.body.innerHTML = `<div class='success-popup'>
-                <h1>${(firstInnings == "B"? teamB : teamA)}</h1>
-                <h2>has won the match</h2>
-                <button type='button' onclick='location.reload(true);'>Start New Match</button>
-                </div>`
-        }
+        // else{
+        //     console.log(3)
+        //     // document.body.innerHTML = "<div class='success-popup'"
+        //     // alert((firstInnings == "B"? teamB : teamA) + " Won the match")
+        //     document.body.innerHTML = `<div class='success-popup'>
+        //         <h1>${(firstInnings == "B"? teamB : teamA)}</h1>
+        //         <h2>has won the match 3</h2>
+        //         <button type='button' onclick='location.reload(true);'>Start New Match</button>
+        //         </div>`
+        // }
+    }
+    else{
+        alert("First Innings over")
     }
     firstInningsRun = runCount;
     document.querySelector(".innings-news").innerText = `Target: ${runCount + 1} from ${totalballs}`;
