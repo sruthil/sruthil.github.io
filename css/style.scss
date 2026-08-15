@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+body {
+    font-size: 16px;
+    background: #f4f4f4;
+    overflow-x: hidden;
+    .success-popup{
+        padding: 10px;
+        min-height: 100svh;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 0px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        button{
+            font-size: 24px;
+            // width: 100%;
+            border-radius: 0px;
+            padding: 10px 20px;
+            border: none;
+            font-weight: 900;
+            color: #1f6d00;
+            background-color: #bada55;
+            cursor: pointer;
+            border-radius: 10px;
+            flex: 1 0 50%;
+        }
+    }
+}
+
+.container {
+    max-width: 100%;
+    display: flex;
+    transform: translatex(0%);
+    transition: .5s transform ease;
+
+    &.active {
+        transform: translatex(-100%);
+    }
+
+    &.active.start {
+        transform: translatex(-200%);
+    }
+
+    &>div {
+        flex: 0 0 100%;
+    }
+}
+
+.initial-inputs {
+    position: relative;
+    min-height: 100dvh;
+    padding-bottom: 51px;
+}
+
+.coinTosser {
+    position: relative;
+    min-height: 100dvh;
+    padding-bottom: 51px;
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .outerbox {
+        height: 20rem;
+        display: grid;
+        place-content: center;
+        margin-bottom: 110px;
+    }
+
+    .coin {
+        top: 14rem;
+        -webkit-transform: rotateX(45deg);
+        transform: rotateX(45deg);
+        position: relative;
+        width: 6rem;
+        height: 6rem;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+        transform-origin: center;
+        border-radius: 100%;
+    }
+
+    .choice{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        transition: .5s ease-out;
+        transition-property: opacity, transform, visibility;
+        &:not(.active){
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+        }
+        button{
+            font-size: 24px;
+            // width: 100%;
+            border-radius: 0px;
+            padding: 10px 20px;
+            border: none;
+            font-weight: 900;
+            color: #1f6d00;
+            background-color: #bada55;
+            cursor: pointer;
+            border-radius: 10px;
+            flex: 1 0 50%;
+            &:last-child{
+                background-color: #1f6d00;
+                color: #bada55;
+            }
+        }
+    }
+
+    .animate {
+        -webkit-animation: spin 1.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+        animation: spin 1.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+    }
+
+    .head,
+    .tail {
+        position: absolute;
+        width: 6rem;
+        height: 6rem;
+        background: -o-radial-gradient(#ffeb3b, #ffc107);
+        background: radial-gradient(#ffeb3b, #ffc107);
+        border: 5px solid #ffb51d;
+        color: rgb(20, 20, 20);
+        font-size: 1rem;
+        font-weight: 800;
+        display: grid;
+        place-content: center;
+        border-radius: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .tail {
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+    #coinToss {
+        font-size: 24px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        z-index: 2;
+        position: absolute;
+        border-radius: 0px;
+        padding: 10px 20px;
+        border: none;
+        font-weight: 900;
+        color: #ea8c00;
+        background-color: #ffe0af;
+        cursor: pointer;
+        transition: .5s transform ease;
+        &.disabled{
+            transform: translateY(100%);
+        }
+    }
+}
+
+.init-form {
+    padding: 15px;
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .inpGrp {
+        margin-bottom: 10px;
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input {
+            font-size: 16px;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+        }
+    }
+
+    .startBtn {
+        font-size: 24px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        z-index: 2;
+        position: absolute;
+        border-radius: 0px;
+        padding: 10px 20px;
+        border: none;
+        font-weight: 900;
+        color: #005BEA;
+        background-color: #F5B349;
+        cursor: pointer;
+    }
+}
+
+
+.teamsnames {
+    background-color: #1D1E22;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    font-weight: 300;
+
+    .team {
+        font-size: 26px;
+        font-weight: 700;
+    }
+}
+
+.innings-news {
+    background-color: #099774;
+    // text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    color: #fff;
+    min-height: 46px;
+}
+
+.scoreTab {
+    // background-image: linear-gradient(to bottom, #6a11cb 0%, #2575fc 100%);
+    background-color: #005BEA;
+
+    // display: flex;
+    // gap: 10px;
+    .runwicketsection {
+        display: grid;
+        // justify-content: center;
+        // height: calc(100svh - 490px);
+        place-content: center;
+        text-align: center;
+        padding: 10px;
+        color: #213144;
+        // background-image: linear-gradient(to bottom, #f83600 0%, #f9d423 100%);
+        background-color: #F4A62C;
+
+        .countryName {
+            margin-right: 15px;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+
+        .runs {
+            font-weight: 900;
+            font-style: italic;
+            font-size: 68px;
+        }
+    }
+
+    .bowling {
+        display: grid;
+        gap: 10px;
+        color: #eeeeff;
+        padding: 10px;
+
+        .overCount {
+            font-size: 18px;
+            font-weight: 700;
+
+            &::after {
+                content: " overs";
+                font-size: 14px;
+                font-style: italic;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .bowlingover {
+        display: flex;
+        font-size: 14px;
+        flex-wrap: wrap;
+        gap: 3px;
+        min-height: 20px;
+
+        div {
+            width: 20px;
+            flex: 0 0 20px;
+            height: 20px;
+            // background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+            background-color: #FDF5E7;
+            color: #213144;
+            border-radius: 3px;
+            display: grid;
+            font-weight: 600;
+            place-content: center;
+
+            &.b-wkt {
+                color: #cb2944;
+                background-color: #ECA2AE;
+            }
+
+            &.b-wid {
+                color: #99B2B7;
+                background-color: #1C0113;
+            }
+            &.b-ded {
+                color: #49708A;
+                background-color: #CCDEFB;
+            }
+
+            &.b-nob {
+                color: #B6DC96;
+                background-color: #275462;
+            }
+        }
+    }
+}
+
+.runCalculator {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1px;
+    padding: 1px;
+    background-color: #F9E1E5;
+
+    .bowlActionButton {
+        font-size: 32px;
+        padding: 10px 5px;
+        border: none;
+        font-weight: 700;
+        // border-radius: 10px;
+        grid-column: span 3 / span 3;
+
+        &.nob {
+            color: #B6DC96;
+            background-color: #275462;
+        }
+
+        &.dot {
+            background-color: #ecd078;
+            color: #FD8A1E;
+        }
+
+        &.wkt {
+            background-color: #cb2944;
+            color: #ECA2AE;
+        }
+
+        &.wid {
+            background-color: #99B2B7;
+            color: #1C0113;
+        }
+
+        &.run {
+            background-color: #519548;
+            color: #BEF202;
+            grid-column: span 2;
+        }
+
+        &.ded {
+            background-color: #49708A;
+            color: #CCDEFB;
+        }
+
+        &.und {
+            background-color: #148cc0;
+            color: #DBE3F5;
+        }
+    }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    top: 14rem;
+    -webkit-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+  }
+  50% {
+    -webkit-transform: rotateX(5000deg);
+            transform: rotateX(5000deg);
+    top: 0rem;
+  }
+  100% {
+    top: 14rem;
+    -webkit-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+  }
+}
+@keyframes spin {
+  0% {
+    top: 14rem;
+    -webkit-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+  }
+  50% {
+    -webkit-transform: rotateX(5000deg);
+            transform: rotateX(5000deg);
+    top: 0rem;
+  }
+  100% {
+    top: 14rem;
+    -webkit-transform: rotateX(45deg);
+            transform: rotateX(45deg);
+  }
+}

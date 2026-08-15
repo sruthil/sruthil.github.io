@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="initial-inputs">
+                <form action="" class="init-form" id="detailsForm">
+                    <h1>Enter Match Details</h1>
+                    <div class="inpGrp">
+                        <label for="teamA">First Team*</label>
+                        <input id="teamA" name="teamA" placeholder="Team A Name" required>
+                    </div>
+                    <div class="inpGrp">
+                        <label for="teamB">Second Team*</label>
+                        <input id="teamB" name="teamB" placeholder="Team B Name" required>
+                    </div>
+                    <div class="inpGrp">
+                        <label for="over">Total Over*</label>
+                        <input id="overs" name="overs" type="number" placeholder="Number of Overs" required>
+                    </div>
+                    <div class="inpGrp">
+                        <label for="wickets">No.of Players in each team*</label>
+                        <input id="wickets" name="wickets" type="number" placeholder="Max Wickets" required>
+                    </div>
+                    <button type="submit" class="startBtn">Continue</button>
+                </form>
+                <!--   <button id="fullscreenToggle" class="fullscreen-btn" onclick="toggleFullScreen()">
+                <span id="btnIcon">⛶</span>
+                <span id="btnText">Enable Fullscreen</span>
+              </button> -->
+
+            </div>
+            <div class="coinTosser">
+                <h1 class="title">Toss Coin</h1>
+                <div class="outerbox">
+                    <div class="coin on">
+                        <div class="head"></div>
+                        <div class="tail"></div>
+                    </div>
+                </div>
+                <div class="choice">
+                    <button class="choiceBtn" data-choice="bat">Bat</button>
+                    <button class="choiceBtn" data-choice="bowl">Bowl</button>
+                </div>
+                <button id="coinToss">Toss</button>
+            </div>
+            <div class="gameScore">
+                <div class="teamsnames">
+                    <div class="team t1"></div> vs <div class="team t2"></div>
+                </div>
+                <div class="innings-news"></div>
+                <div class="scoreTab">
+                    <div class="runwicketsection">
+                        <div class="countryName"></div>
+                        <div class="runs"><span class="rn">0</span>/<span class="wk">0</span></div>
+                    </div>
+                    <div class="bowling">
+                        <div class="overCount">0.0</div>
+                        <div class="bowlingover">
+                            <!-- <div class="b-dot">•</div>
+                            <div class="b-run b">6</div>
+                            <div class="b-run">2</div>
+                            <div class="b-wid">W</div>
+                            <div class="b-wkt">X</div>
+                            <div class="b-nob">N</div>
+                            <div class="b-ded">D</div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="runCalculator">
+                    <button class="bowlActionButton run" data-value="1">1</button>
+                    <button class="bowlActionButton run" data-value="2">2</button>
+                    <button class="bowlActionButton run" data-value="3">3</button>
+                    <button class="bowlActionButton run" data-value="4">4</button>
+                    <button class="bowlActionButton run" data-value="5">5</button>
+                    <button class="bowlActionButton run" data-value="6">6</button>
+                    <button class="bowlActionButton dot" data-value="0">Dot Ball</button>
+                    <button class="bowlActionButton wid" data-value="-2">Wide</button>
+                    <button class="bowlActionButton nob" data-value="-3">No Ball</button>
+                    <button class="bowlActionButton ded" data-value="-4">Deadball</button>
+                    <button class="bowlActionButton wkt" data-value="-1">Wicket</button>
+                    <button class="bowlActionButton und" data-value="z">Undo</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
